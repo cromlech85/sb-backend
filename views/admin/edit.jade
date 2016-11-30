@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+	h1.
+		User E-mail #{user.email}
+	form(action='/admin/#{user.email}/edit',method='post',name='updateuser',enctype='application/x-www-form-urlencoded')
+		table
+			tr
+				td Username
+				td
+					input#inputUsername(type='text', value='#{user.username}', name='username')
+			tr
+				td E-mail
+				td
+					input#inputEmail(type='text', value='#{user.email}', name='email')
+			tr
+				td Password
+				td
+					input#inputPassword(type='password', value='#{user.password}', name='password')
+			tr
+				td Admin
+				td
+					input(type="checkbox", name="admin")
+		p
+			input(type='hidden',value='PUT',name='_method')
+		p
+			button#btnSubmit(type='submit').
+				Update

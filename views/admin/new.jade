@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+	h1.
+		#{title}
+	form#formAddUser(name="adduser",method="post",action="/admin/userlist")
+		table
+			tr
+				td Username
+				td
+					input#inputUsername(type="text", placeholder="ex. SportUser00", name="username")
+			tr
+				td Email
+				td
+					input#inputEmail(type="text", placeholder="ex. user@server.com", name="email")
+			tr
+				td Password
+				td
+					input#inputPassword(type="password", name="password")
+			tr
+				td Admin
+				td
+					input(type="checkbox", name="admin")
+		p
+			button#btnSubmit(type="submit") submit

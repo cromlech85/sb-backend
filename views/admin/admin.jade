@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+	h1.
+		#{title}
+
+	form(action='/admin/',method='post',name='adminlogin',enctype='application/x-www-form-urlencoded')
+		table
+			tr
+				td E-mail
+				td
+					input#inputEmail(type="text", placeholder="ex. user@server.com", name="email")
+			tr
+				td Password
+				td
+					input#inputPassword(type="password", name="password")
+		p
+			input(type='hidden',value='PUT',name='_method')
+		p
+			button#btnSubmit(type='submit').
+				Kirjaudu

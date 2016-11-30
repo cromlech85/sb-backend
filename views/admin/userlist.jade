@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+	h1.
+		#{title}
+		
+	p
+		a(href='/admin/logout') Kirjaudu ulos
+	
+	ul
+		- each user, i in users
+			li Käyttäjänimi: 
+				= user.username
+			li Sähköpostiosoite: 
+				= user.email
+			li Salasana: 
+				= user.password
+				form(action='/admin/#{user.email}/delete',method='post',enctype='application/x-www-form-urlencoded')
+					input(type='hidden',value='DELETE',name='_method')
+					button(type='submit').
+						Delete
+						
+				p(class="option")
+					a(href='/admin/#{user.email}/edit') Edit
+				p(class="option")
+					a(href='/admin/#{user.email}') Show
+				p(class="option")
+					a(href='/admin/new') New user
